@@ -2,7 +2,6 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
 
 def criar_e_treinar_chatbot():
-    # Criação do chatbot
     study_assistant = ChatBot(
         'Assistente de Estudos',
         storage_adapter='chatterbot.storage.SQLStorageAdapter',
@@ -16,11 +15,9 @@ def criar_e_treinar_chatbot():
         ]
     )
 
-    # Treinamento com o corpus padrão em português
     corpus_trainer = ChatterBotCorpusTrainer(study_assistant)
     corpus_trainer.train("chatterbot.corpus.portuguese")
 
-    # Treinamento com dados específicos
     list_trainer = ListTrainer(study_assistant)
 
     # Treinamento sobre Matemática
@@ -97,7 +94,6 @@ def interagir_com_chatbot(chatbot):
                 return
 
 def testar_precisao(chatbot):
-    # Definir perguntas e respostas esperadas
     testes = {
         "O que é uma função matemática?": "Uma função matemática é uma relação entre um conjunto de entradas e um conjunto de possíveis saídas onde cada entrada está relacionada a exatamente uma saída.",
         "Qual é a fórmula da área de um círculo?": "A fórmula da área de um círculo é A = πr^2, onde 'A' é a área e 'r' é o raio.",
@@ -127,3 +123,4 @@ if __name__ == "__main__":
     chatbot = criar_e_treinar_chatbot()
     interagir_com_chatbot(chatbot)
     testar_precisao(chatbot)
+
